@@ -1,9 +1,12 @@
+import Main from './components/Main';
+
 function App() {
   return (
-    <>
-      <h1>Hello world</h1>
-    </>
-  )
+    <div>
+      <h1>Pokemon Data:</h1>
+      <Main />
+    </div>
+  );
 }
 
-export default App
+export default App;
