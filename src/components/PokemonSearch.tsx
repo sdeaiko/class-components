@@ -24,15 +24,22 @@ export default class PokemonSearch extends Component<searchProps, searchState> {
         searchPokemon(searchText); 
     };
 
+    handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') { 
+            this.handleSearchClick(); 
+        }
+    };
+
     render() {
         const { searchText } = this.state;
         return (
-            <div>
+            <div className='pokemon__search'>
                 <input
                     type="text"
-                    placeholder="Enter Pokemon name"
+                    placeholder="Enter Pokemon name or number"
                     value={searchText}
                     onChange={this.handleInputChange} 
+                    onKeyDown={this.handleKeyDown}
                 />
                 <button onClick={this.handleSearchClick}>Search</button>
             </div>

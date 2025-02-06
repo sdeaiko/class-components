@@ -95,7 +95,7 @@ const fetchSelectedPokemon = async (pokemonName: string): Promise<IPokemon> => {
 function editedPokemon(data: fetchingPokemon): IPokemon {
   return {
     id: data.id,
-    name: data.name,
+    name: data.name.charAt(0).toUpperCase() + data.name.slice(1),
     abilities: data.abilities.map((ability: IPokemonAbility) => ({
       name: ability.ability.name,
     })),
@@ -105,68 +105,10 @@ function editedPokemon(data: fetchingPokemon): IPokemon {
   };
 }
 
-const mockPokemonData: IPokemon[] = [
-  {
-    id: 1,
-    name: 'Bulbasaur',
-    abilities: [{ name: 'Overgrow' }, { name: 'Chlorophyll' }],
-    height: 7,
-    weight: 69,
-    image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
-  },
-  {
-    id: 4,
-    name: 'Charmander',
-    abilities: [{ name: 'Blaze' }, { name: 'Solar Power' }],
-    height: 6,
-    weight: 85,
-    image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png',
-  },
-  {
-    id: 7,
-    name: 'Squirtle',
-    abilities: [{ name: 'Torrent' }, { name: 'Rain Dish' }],
-    height: 5,
-    weight: 90,
-    image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png',
-  },
-  {
-    id: 25,
-    name: 'Pikachu',
-    abilities: [{ name: 'Static' }, { name: 'Lightning Rod' }],
-    height: 4,
-    weight: 60,
-    image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png',
-  },
-  {
-    id: 151,
-    name: 'Mew',
-    abilities: [{ name: 'Synchronize' }],
-    height: 4,
-    weight: 40,
-    image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png',
-  },
-  {
-    id: 143,
-    name: 'Snorlax',
-    abilities: [{ name: 'Immunity' }, { name: 'Thick Fat' }],
-    height: 21,
-    weight: 4600,
-    image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png',
-  },
-];
-
 export {
   fetchData,
   fetchEachPokemon,
   fetchSelectedPokemon,
-  mockPokemonData,
   URL,
   LIMIT,
 };
