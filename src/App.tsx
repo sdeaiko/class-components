@@ -1,9 +1,11 @@
+import Main from './components/Main';
+
 function App() {
   return (
-    <>
-      <h1>Hello world</h1>
-    </>
-  )
+    <div className='container'>
+      <Main />
+    </div>
+  );
 }
 
-export default App
+export default App;
